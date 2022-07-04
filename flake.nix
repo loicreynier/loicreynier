@@ -18,8 +18,8 @@
   outputs = {
     self,
     flake-utils,
-    pre-commit-hooks,
     nixpkgs,
+    pre-commit-hooks,
   }: let
     supportedSystems = ["x86_64-linux"];
   in
