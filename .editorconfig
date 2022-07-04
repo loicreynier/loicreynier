@@ -13,5 +13,5 @@ indent_size = 4
 indent_size = 2
 trim_trailing_whitespace = false
 
-[*.nix]
+[*.{nix,yaml,lock,ecrc}]
 indent_size = 2

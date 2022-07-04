@@ -22,16 +22,28 @@
     nixpkgs,
   }: let
     supportedSystems = ["x86_64-linux"];
-  in (flake-utils.lib.eachSystem supportedSystems (system: let
-    pkgs = import nixpkgs {inherit system;};
-  in rec {
-    checks = {
-      pre-commit-check = pre-commit-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = with pkgs; {
-          prettier.enable = true;
+  in
+    flake-utils.lib.eachSystem supportedSystems (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in rec {
+      checks = {
+        pre-commit-check = pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = with pkgs; {
+            alejandra.enable = true;
+            statix.enable = true;
+            prettier.enable = true;
+            editorconfig-checker = {
+              enable = true;
+              entry = "${pkgs.editorconfig-checker}/bin/editorconfig-checker";
+              types = ["file"];
+            };
+          };
         };
       };
-    };
-  }));
+
+      devShells.default = pkgs.mkShell {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+      };
+    });
 }
