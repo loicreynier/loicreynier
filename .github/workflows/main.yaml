@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          filename: metrics.svg
+          filename: assets/metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: loicreynier
           template: classic
