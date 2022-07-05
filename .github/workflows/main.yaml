@@ -11,7 +11,7 @@ jobs:
           filename: metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           output_action: gist
-          committer_gist: ${{ secrets.GIST_ID }}
+          committer_gist: 076ebb6b6c6607b6c62d3c7cce60c902
           user: loicreynier
           template: classic
           base: header, activity, community, repositories, metadata
