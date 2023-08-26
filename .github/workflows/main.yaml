@@ -6,7 +6,8 @@ jobs:
   github-metrics:
     runs-on: ubuntu-latest
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: GitHub metrics
+        uses: lowlighter/metrics@latest
         with:
           filename: metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -29,3 +30,14 @@ jobs:
           plugin_languages_sections: most-used, recently-used
           # plugin_leetcode: yes
           # plugin_leetcode_sections: skills
+      - name: Stack Overflow metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.stackoverflow.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          output_action: gist
+          committer_gist: 1523fff022a1c1038e8d57353472ae1a
+          base: ""
+          plugin_stackoverflow: yes
+          plugin_stackoverflow_user: 22158873
+          plugin_stackoverflow_sections: answers-top
