@@ -29,7 +29,9 @@ jobs:
           plugin_languages_sections: most-used, recently-used
           # plugin_leetcode: yes
           # plugin_leetcode_sections: skills
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.stackoverflow.svg
           plugin_stackoverflow: yes
           plugin_stackoverflow_user: 22158873
           plugin_stackoverflow_sections: answers-top
-          plugin_stackoverflow_limit: 2
