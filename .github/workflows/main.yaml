@@ -32,6 +32,9 @@ jobs:
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.plugin.stackoverflow.svg
+          output_action: gist
+          committer_gist: 1523fff022a1c1038e8d57353472ae1a
+          user: loicreynier
           plugin_stackoverflow: yes
           plugin_stackoverflow_user: 22158873
           plugin_stackoverflow_sections: answers-top
